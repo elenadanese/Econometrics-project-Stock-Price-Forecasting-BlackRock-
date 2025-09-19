@@ -1,24 +1,56 @@
 ## Econometrics project: Stock Price Forecasting (BlackRock)
 ## Project Overview
 
-This project, carried out as part of the Econometrics course at the University of Padua, aimed to forecast BlackRock’s stock price and analyze its volatility dynamics. The goal was to bridge theoretical econometric models with real-world financial data, assessing their effectiveness and adaptability in practice.
+This group project, developed within the Econometrics course at the University of Padua, focused on forecasting the stock price of BlackRock and analyzing its volatility. A key feature of the assignment was the freedom granted to students: our team independently selected both the stock to forecast (BlackRock) and the exogenous variables to integrate (S&P500 index and VIX). Similarly, we decided which econometric models to implement, allowing us to design a tailored methodology that balanced theory with practical data analysis.
 
 ## Objectives
 
-Improve forecasting accuracy of financial time series.
-Perform volatility modeling and analysis.
-Evaluate the impact of exogenous variables (S&P500 index and VIX).
-Compare different econometric models to assess robustness.
+Forecast BlackRock stock prices using econometric methods.
+Perform volatility modeling and risk assessment in financial time series.
+Compare models in terms of forecast accuracy, robustness, and interpretability.
+Investigate the role of external variables (S&P500, VIX) in improving predictive performance.
+Bridge theory and practice by iteratively applying models and validating results on real financial data.
 
 ## Methodology
 
-The project was implemented in R, week by week, developing and testing a range of models, both univariate and multivariate:
-- ARIMA / ARMA models for time series forecasting
-- GARCH-family models to capture volatility clustering
-    -  Standard GARCH
-    -  TGARCH and EGARCH (to address asymmetry issues)
-    -  GARCH with alternative distributions
-- ARMA-GARCH combined models
-- VAR models with exogenous variables (S&P500, VIX)
+The project was implemented in R over multiple weeks, with progressively more advanced models being tested and compared. The analysis was structured in phases:
+
+Data preprocessing and stationarity checks
+
+Historical data: BlackRock prices (2014–2025).
+
+Transformations: differencing and log-returns.
+
+Statistical tests (ADF, Ljung-Box, Jarque-Bera) to assess stationarity, autocorrelation, and normality.
+
+Baseline models
+
+ARIMA / ARMA models for short-term price forecasting.
+
+Iterative specification (manual selection and auto.arima), with diagnostics to refine model parsimony.
+
+Volatility modeling
+
+GARCH-family models to capture volatility clustering.
+
+Variants tested:
+
+Standard GARCH
+
+TGARCH and EGARCH (to account for asymmetry and leverage effects)
+
+Models under different error distributions (Normal, Student-t, skewed-t).
+
+ARMA-GARCH integrated models
+
+Joint estimation of mean and volatility processes.
+
+Comparison of competing specifications using AIC/BIC, log-likelihood, and residual analysis.
+
+Multivariate approaches
+
+VAR models to analyze dynamic interactions between BlackRock, S&P500, and VIX.
+
+Forecasting performance assessed against univariate benchmarks.
 
 This was a group project, carried out collaboratively with fellow students. The teamwork aspect was crucial for: sharing model insights and coding strategies, critically interpreting results, and reaching common solutions through discussion and comparison.
