@@ -14,43 +14,37 @@ Bridge theory and practice by iteratively applying models and validating results
 ## Methodology
 
 The project was implemented in R over multiple weeks, with progressively more advanced models being tested and compared. The analysis was structured in phases:
+- Data preprocessing and stationarity checks
+    -  Historical data: BlackRock prices (2014–2025).
+    -  Transformations: differencing and log-returns.
+    -  Statistical tests (ADF, Ljung-Box, Jarque-Bera) to assess stationarity, autocorrelation, and normality.
 
-Data preprocessing and stationarity checks
+- Baseline models
+    -  ARIMA / ARMA models for short-term price forecasting.
+    -  Iterative specification, with diagnostics to refine model parsimony.
 
-Historical data: BlackRock prices (2014–2025).
+- Volatility modeling
+    -  GARCH-family models to capture volatility clustering.
+    -  Variants tested:
+         -  Standard GARCH
+         -  TGARCH and EGARCH (to account for asymmetry and leverage effects)
+         -  Models under different error distributions (Normal, Student-t, skewed-t).
 
-Transformations: differencing and log-returns.
+- ARMA-GARCH integrated models
+    -  Joint estimation of mean and volatility processes.
+    -  Comparison of competing specifications using AIC/BIC, log-likelihood, and residual analysis.
 
-Statistical tests (ADF, Ljung-Box, Jarque-Bera) to assess stationarity, autocorrelation, and normality.
+- Multivariate approaches
+    -  VAR models to analyze dynamic interactions between BlackRock, S&P500, and VIX.
+    -  Forecasting performance assessed against univariate benchmarks.
 
-Baseline models
+## Technologies
 
-ARIMA / ARMA models for short-term price forecasting.
-
-Iterative specification (manual selection and auto.arima), with diagnostics to refine model parsimony.
-
-Volatility modeling
-
-GARCH-family models to capture volatility clustering.
-
-Variants tested:
-
-Standard GARCH
-
-TGARCH and EGARCH (to account for asymmetry and leverage effects)
-
-Models under different error distributions (Normal, Student-t, skewed-t).
-
-ARMA-GARCH integrated models
-
-Joint estimation of mean and volatility processes.
-
-Comparison of competing specifications using AIC/BIC, log-likelihood, and residual analysis.
-
-Multivariate approaches
-
-VAR models to analyze dynamic interactions between BlackRock, S&P500, and VIX.
-
-Forecasting performance assessed against univariate benchmarks.
+The project was entirely developed in R. We used the following main packages, grouped by purpose:
+- Data Management & Visualization: readxl, here, ggplot2
+- Stationarity & Statistical Tests: tseries, fBasics
+- Time Series Forecasting: forecast, stats
+- Volatility Modeling (GARCH-family): rugarch, fGarch
+- Multivariate Models: vars
 
 This was a group project, carried out collaboratively with fellow students. The teamwork aspect was crucial for: sharing model insights and coding strategies, critically interpreting results, and reaching common solutions through discussion and comparison.
